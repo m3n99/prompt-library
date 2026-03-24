@@ -18,7 +18,7 @@ Each `.md` file contains:
 | Prompt | Description |
 |---|---|
 | [Project Blueprint Generator](prompts/project-blueprint/prompt.md) | Turns a topic + skill level + difficulty into a full project blueprint with architecture, steps, timeline, and a master AI coding prompt |
-| [AI Interview Trainer](prompts/interview-trainer/prompt.md) | Simulates a realistic human interviewer (Jordan) with adaptive difficulty, onboarding setup, strike system, lifeline, and a detailed multi-dimension evaluation report |
+| [AI Interview Trainer](prompts/interview-trainer/prompt.md) | Simulates a realistic human interviewer (Dante) with adaptive difficulty, onboarding setup, strike system, lifeline, and a detailed multi-dimension evaluation report |
 
 ---
 
