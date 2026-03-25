@@ -1,4 +1,5 @@
 # Section 04 — Technical Architecture
+
 ### Deep-Dive Companion Prompt
 
 > **When to use this file:**
@@ -107,26 +108,28 @@ Requirements:
 
 Example structure to follow (adapt to this product):
 ```
+
 [Browser / Mobile Client]
-       │  HTTPS REST / WebSocket
-       ▼
+│ HTTPS REST / WebSocket
+▼
 [API Gateway / Load Balancer]
-       │
-       ├──► [Auth Service]  ── JWT ──► [User DB]
-       │
-       ├──► [Document Service]
-       │         │  ──► [Object Storage (S3)]
-       │         │  ──► [Processing Queue]
-       │                     │
-       │              [Worker Service]
-       │                     │  ──► [Claude API]
-       │                     │  ──► [Embedding Model]
-       │                     │  ──► [Vector DB]
-       │
-       └──► [Query Service]
-                 │  ──► [Vector DB] (semantic search)
-                 │  ──► [Relational DB] (metadata)
-                 │  ──► [Claude API] (generation)
+│
+├──► [Auth Service] ── JWT ──► [User DB]
+│
+├──► [Document Service]
+│ │ ──► [Object Storage (S3)]
+│ │ ──► [Processing Queue]
+│ │
+│ [Worker Service]
+│ │ ──► [Claude API]
+│ │ ──► [Embedding Model]
+│ │ ──► [Vector DB]
+│
+└──► [Query Service]
+│ ──► [Vector DB] (semantic search)
+│ ──► [Relational DB] (metadata)
+│ ──► [Claude API] (generation)
+
 ```
 
 
@@ -202,32 +205,34 @@ Include at minimum:
 Provide a realistic, annotated project tree:
 
 ```
+
 project-root/
 ├── apps/
-│   ├── web/                    // Frontend application
-│   │   ├── src/
-│   │   │   ├── components/     // Reusable UI components
-│   │   │   ├── pages/          // Route-level page components
-│   │   │   ├── hooks/          // Custom React hooks
-│   │   │   ├── lib/            // API client, utilities
-│   │   │   └── types/          // TypeScript type definitions
-│   │   └── ...
-│   └── api/                    // Backend API service
-│       ├── src/
-│       │   ├── routes/         // API route handlers
-│       │   ├── services/       // Business logic layer
-│       │   ├── models/         // DB models / schemas
-│       │   ├── workers/        // Background job workers
-│       │   ├── claude/         // Claude API client + prompt templates
-│       │   ├── pipeline/       // Document processing pipeline
-│       │   └── middleware/     // Auth, validation, logging
-│       └── ...
+│ ├── web/ // Frontend application
+│ │ ├── src/
+│ │ │ ├── components/ // Reusable UI components
+│ │ │ ├── pages/ // Route-level page components
+│ │ │ ├── hooks/ // Custom React hooks
+│ │ │ ├── lib/ // API client, utilities
+│ │ │ └── types/ // TypeScript type definitions
+│ │ └── ...
+│ └── api/ // Backend API service
+│ ├── src/
+│ │ ├── routes/ // API route handlers
+│ │ ├── services/ // Business logic layer
+│ │ ├── models/ // DB models / schemas
+│ │ ├── workers/ // Background job workers
+│ │ ├── claude/ // Claude API client + prompt templates
+│ │ ├── pipeline/ // Document processing pipeline
+│ │ └── middleware/ // Auth, validation, logging
+│ └── ...
 ├── packages/
-│   ├── shared/                 // Shared types between frontend and backend
-│   └── prompts/                // Versioned prompt templates
-├── infra/                      // Infrastructure as code (Terraform / CDK)
-├── scripts/                    // Dev, migration, seeding scripts
-└── docs/                       // Architecture docs, ADRs
+│ ├── shared/ // Shared types between frontend and backend
+│ └── prompts/ // Versioned prompt templates
+├── infra/ // Infrastructure as code (Terraform / CDK)
+├── scripts/ // Dev, migration, seeding scripts
+└── docs/ // Architecture docs, ADRs
+
 ```
 (Expand this tree to match the actual product's structure.)
 ```

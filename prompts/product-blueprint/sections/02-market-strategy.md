@@ -1,4 +1,5 @@
 # Section 02 — Market & Business Strategy
+
 ### Deep-Dive Companion Prompt
 
 > **When to use this file:**

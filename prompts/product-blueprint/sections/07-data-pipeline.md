@@ -1,4 +1,5 @@
 # Section 07 — Data Pipeline Design
+
 ### Deep-Dive Companion Prompt
 
 > **When to use this file:**
@@ -24,7 +25,7 @@ EXISTING_STORAGE:    [None | AWS S3 | GCS | Azure Blob | Other]
 
 ## The Prompt
 
-```
+````
 You are a data engineering architect. Design a complete, production-grade
 data pipeline for the product below. Cover ingestion through retrieval.
 Be specific about tools, libraries, schema, and failure handling.
@@ -137,36 +138,36 @@ Evaluate and select the right strategy for this product:
   "embedding_model": "string",
   "embedding_version": "string"
 }
-```
-
+````
 
 ## Storage Architecture
 
 ### Storage Layers
-| Layer | Technology | What's Stored | Access Pattern | Retention |
-|---|---|---|---|---|
-| Raw files | Object storage (S3) | Original uploaded files | Write once, read rarely | Per policy |
-| Extracted text | Relational DB | Cleaned text, metadata | Read often | Per policy |
-| Chunks + Embeddings | Vector DB | Chunks + vectors | High-frequency read | Per policy |
-| Job state | Redis | Queue jobs, status | Ephemeral | 7 days |
-| Processed results | Relational DB | AI outputs, citations | Read often | Per policy |
+
+| Layer               | Technology          | What's Stored           | Access Pattern          | Retention  |
+| ------------------- | ------------------- | ----------------------- | ----------------------- | ---------- |
+| Raw files           | Object storage (S3) | Original uploaded files | Write once, read rarely | Per policy |
+| Extracted text      | Relational DB       | Cleaned text, metadata  | Read often              | Per policy |
+| Chunks + Embeddings | Vector DB           | Chunks + vectors        | High-frequency read     | Per policy |
+| Job state           | Redis               | Queue jobs, status      | Ephemeral               | 7 days     |
+| Processed results   | Relational DB       | AI outputs, citations   | Read often              | Per policy |
 
 ### Data Lifecycle Management
-  - When is data deleted? (User-initiated | Account deletion | Retention policy)
-  - Cascade deletion: what happens to embeddings, chunks, jobs when a document
-    is deleted.
-  - Soft delete vs hard delete — which and why.
-  - GDPR right-to-erasure implementation.
 
+- When is data deleted? (User-initiated | Account deletion | Retention policy)
+- Cascade deletion: what happens to embeddings, chunks, jobs when a document
+  is deleted.
+- Soft delete vs hard delete — which and why.
+- GDPR right-to-erasure implementation.
 
 ## Real-Time Processing Path
 
 For LATENCY_REQUIREMENT = Real-time:
-  - What can be streamed vs must be buffered.
-  - Claude API streaming implementation (SSE to frontend).
-  - WebSocket architecture for live processing updates.
-  - Timeout handling when Claude takes too long.
 
+- What can be streamed vs must be buffered.
+- Claude API streaming implementation (SSE to frontend).
+- WebSocket architecture for live processing updates.
+- Timeout handling when Claude takes too long.
 
 ## Data Quality & Monitoring
 
@@ -179,7 +180,6 @@ For LATENCY_REQUIREMENT = Real-time:
 - **Reprocessing:** How to re-run the pipeline on a document without data
   corruption.
 
-
 ## Performance Benchmarks
 
 For each format, document expected processing time at launch scale:
@@ -187,4 +187,7 @@ For each format, document expected processing time at launch scale:
 |---|---|---|---|---|
 
 Identify which step is the bottleneck and the optimization path.
+
+```
+
 ```

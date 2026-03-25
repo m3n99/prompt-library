@@ -1,4 +1,5 @@
 # Section 03 — Product Features & UX
+
 ### Deep-Dive Companion Prompt
 
 > **When to use this file:**

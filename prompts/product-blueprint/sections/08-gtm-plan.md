@@ -1,4 +1,5 @@
 # Section 08 — Go-To-Market Plan
+
 ### Deep-Dive Companion Prompt
 
 > **When to use this file:**
@@ -24,7 +25,7 @@ TIMELINE_TO_LAUNCH:  [e.g. 4 weeks | 3 months | flexible]
 
 ## The Prompt
 
-```
+````
 You are a startup growth strategist and sales architect. Design a complete,
 execution-ready go-to-market plan for the product below. Every section must
 include real copy, specific tactics, and measurable outcomes.
@@ -70,7 +71,7 @@ OUTPUT SECTIONS
   - Outreach method and message (write the actual message):
     ```
     Subject: [subject line]
-    
+
     [Body of the outreach message]
     ```
   - What beta testers get (early access, discount, co-design input).
@@ -108,13 +109,17 @@ Launch posts — write the actual copy for each channel:
 For each touch: channel, timing, goal, and the exact message:
 
 **Touch 1 — Day 0 — [Channel]**
-```
+````
+
 [Write the full message]
+
 ```
 
 **Touch 2 — Day 3 — [Channel]**
 ```
+
 [Write the full message or if a follow-up, write the follow-up]
+
 ```
 
 (Continue through Touch 5)

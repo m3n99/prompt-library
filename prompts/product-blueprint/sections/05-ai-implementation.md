@@ -1,4 +1,5 @@
 # Section 05 — AI Implementation Details
+
 ### Deep-Dive Companion Prompt
 
 > **When to use this file:**
@@ -68,13 +69,17 @@ For each major feature, write the full prompt template:
 
 **System Prompt:**
 ```
+
 [Write the full system prompt — include persona, constraints, output format,
- and domain-specific instructions]
+and domain-specific instructions]
+
 ```
 
 **User Message Template:**
 ```
+
 [Write the template with {placeholder} variables for dynamic content]
+
 ```
 
 **Key Design Decisions:**
@@ -141,17 +146,19 @@ For each major feature, write the full prompt template:
 - **Agent objective:** What the agent is trying to accomplish.
 - **Planning approach:** How the agent decides what steps to take.
 - **Tool definitions:** For each tool:
-  ```
-  Tool name: [name]
-  Description: [what it does — Claude reads this to decide when to use it]
-  Input schema: [field names, types, descriptions]
-  Output schema: [what the tool returns]
-  Error handling: [what to return on failure]
-  ```
+```
+
+Tool name: [name]
+Description: [what it does — Claude reads this to decide when to use it]
+Input schema: [field names, types, descriptions]
+Output schema: [what the tool returns]
+Error handling: [what to return on failure]
+
+```
 - **Human-in-the-loop points:** Where the agent must pause and ask for
-  confirmation before proceeding.
+confirmation before proceeding.
 - **Loop termination:** How infinite loops are prevented. Max iterations.
-  Timeout strategy.
+Timeout strategy.
 - **State management:** How agent state persists between steps.
 
 
@@ -160,35 +167,37 @@ For each major feature, write the full prompt template:
 (Only if DOMAIN_SENSITIVITY is not "General")
 
 For [specified domain]:
-  - Specific terminology the system prompt must include for accurate outputs
-  - Content the model should never generate or recommend (safety guardrails)
-  - Disclaimer requirements in outputs
-  - Validation steps for AI outputs before showing to users
-  - Regulatory implications of AI-generated content in this domain
+- Specific terminology the system prompt must include for accurate outputs
+- Content the model should never generate or recommend (safety guardrails)
+- Disclaimer requirements in outputs
+- Validation steps for AI outputs before showing to users
+- Regulatory implications of AI-generated content in this domain
 
 
 ## Cost Optimization Strategy
 
 ### Token Budget Design
 For each feature, show the token budget breakdown:
-  [Feature] → System: X tokens | Context: Y tokens | Output: Z tokens | Total: N
+[Feature] → System: X tokens | Context: Y tokens | Output: Z tokens | Total: N
 
 ### Caching Strategy
-  - **Prompt caching:** Which parts of the system prompt are stable enough
-    for Anthropic's prompt caching feature. Expected cache hit rate.
-  - **Semantic caching:** For repeated or near-identical queries, how responses
-    are cached and retrieved. Similarity threshold for cache hit.
-  - **Response caching:** Which responses can be cached and for how long.
+- **Prompt caching:** Which parts of the system prompt are stable enough
+  for Anthropic's prompt caching feature. Expected cache hit rate.
+- **Semantic caching:** For repeated or near-identical queries, how responses
+  are cached and retrieved. Similarity threshold for cache hit.
+- **Response caching:** Which responses can be cached and for how long.
 
 ### Model Routing Logic
 Write the exact routing logic as pseudocode:
 ```
+
 if query_type == "simple_lookup" and context_length < 1000:
-    use claude-haiku-4-5
+use claude-haiku-4-5
 elif requires_complex_reasoning or context_length > 10000:
-    use claude-opus-4-5
+use claude-opus-4-5
 else:
-    use claude-sonnet-4-5
+use claude-sonnet-4-5
+
 ```
 
 ### Cost Projections
